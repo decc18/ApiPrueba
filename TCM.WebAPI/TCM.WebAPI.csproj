@@ -221,9 +221,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <None Include="Properties\PublishProfiles\TransRabbitApi - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\TransRabbitApi - Web Deploy.pubxml" />
+    <Content Include="libman.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
