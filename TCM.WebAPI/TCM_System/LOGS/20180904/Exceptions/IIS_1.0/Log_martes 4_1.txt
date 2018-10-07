@@ -1,0 +1,119 @@
+08:44:05.969
+[Error - [servicio]
+[sp_consulta_sps]
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Data.SqlClient.SqlException
+Mensaje:La base de datos 'catalogo' no existe. Asegúrese de que ha escrito el nombre correctamente.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarScript(EnumCadenaConexion enumCadena, String strScript) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 553
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarScript(String strScript) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 498
+   en TCM.Core.AccesoDatos.ClsConexion.CargaEstructuraSPs() en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 760
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion)
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion)
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion)
+   en TCM.Core.AccesoDatos.ClsConexion.CargaEstructuraSPs() en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 772
+   en TCM.Core.AccesoDatos.ClsConexion.TestConexion() en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 72
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 215
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.AccesoDatos.ClsConexion.GetListaConsultaSP[T](ClsProcedimiento SP, Nullable`1 EstadoConsulta) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 183
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Consultar[T](T objFiltros) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 120
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.ConsultarFirst[T](T objFiltros) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 133
+   en TCM.Core.LogicaNegocio.CRUD.CrudUsuarios.ConsultarUsuarioByEmail(String email) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudUsuarios.cs:línea 24
+   en TCM.LogicaNegocio.LogicaUsuarios.GetUsuarioByEmail(String email) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUsuarios.cs:línea 33
+   en TCM.WebAPI.Controllers.UsuariosController.<RecuperarPassword>d__6.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UsuariosController.cs:línea 160
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine& stateMachine)
+   en TCM.WebAPI.Controllers.UsuariosController.RecuperarPassword(JObject form)
+   en lambda_method(Closure , Object , Object[] )
+   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass12.<GetExecutor>b__8(Object instance, Object[] methodParameters)
+   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   en System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+   en System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine& stateMachine)
+   en System.Web.Http.Controllers.ApiControllerActionInvoker.InvokeActionAsyncCore(HttpActionContext actionContext, CancellationToken cancellationToken)
+   en System.Web.Http.Controllers.ApiControllerActionInvoker.InvokeActionAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+   en System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine& stateMachine)
+   en System.Web.Http.Controllers.ActionFilterResult.ExecuteAsync(CancellationToken cancellationToken)
+   en System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine& stateMachine)
+   en System.Web.Http.Controllers.AuthenticationFilterResult.ExecuteAsync(CancellationToken cancellationToken)
+   en System.Web.Http.ApiController.ExecuteAsync(HttpControllerContext controllerContext, CancellationToken cancellationToken)
+   en System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine& stateMachine)
+   en System.Web.Http.Dispatcher.HttpControllerDispatcher.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   en System.Net.Http.HttpMessageInvoker.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   en System.Web.Http.Dispatcher.HttpRoutingDispatcher.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   en System.Net.Http.DelegatingHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   en System.Web.Http.Owin.PassiveAuthenticationMessageHandler.<SendAsync>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine& stateMachine)
+   en System.Web.Http.Owin.PassiveAuthenticationMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   en System.Net.Http.DelegatingHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   en System.Web.Http.HttpServer.<SendAsync>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine& stateMachine)
+   en System.Web.Http.HttpServer.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   en System.Net.Http.HttpMessageInvoker.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   en System.Web.Http.Owin.HttpMessageHandlerAdapter.<InvokeCore>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine& stateMachine)
+   en System.Web.Http.Owin.HttpMessageHandlerAdapter.InvokeCore(IOwinContext context, IOwinRequest owinRequest, IOwinResponse owinResponse)
+   en System.Web.Http.Owin.HttpMessageHandlerAdapter.Invoke(IOwinContext context)
+   en Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine& stateMachine)
+   en Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.Invoke(IOwinContext context)
+   en Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine& stateMachine)
+   en Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.Invoke(IOwinContext context)
+   en Microsoft.Owin.Infrastructure.OwinMiddlewareTransition.Invoke(IDictionary`2 environment)
+   en Microsoft.Owin.Infrastructure.AppFuncTransition.Invoke(IOwinContext context)
+   en Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine& stateMachine)
+   en Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.Invoke(IOwinContext context)
+   en Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine& stateMachine)
+   en Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.Invoke(IOwinContext context)
+   en Microsoft.Owin.Infrastructure.OwinMiddlewareTransition.Invoke(IDictionary`2 environment)
+   en Microsoft.Owin.Infrastructure.AppFuncTransition.Invoke(IOwinContext context)
+   en Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine& stateMachine)
+   en Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.Invoke(IOwinContext context)
+   en Microsoft.Owin.Infrastructure.OwinMiddlewareTransition.Invoke(IDictionary`2 environment)
+   en Microsoft.Owin.Cors.CorsMiddleware.<Invoke>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine& stateMachine)
+   en Microsoft.Owin.Cors.CorsMiddleware.Invoke(IDictionary`2 environment)
+   en Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContextStage.<RunApp>d__5.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine& stateMachine)
+   en Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContextStage.RunApp(Func`2 entryPoint, IDictionary`2 environment, TaskCompletionSource`1 tcs, StageAsyncResult result)
+   en Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContextStage.BeginEvent(Object sender, EventArgs e, AsyncCallback cb, Object extradata)
+   en System.Web.HttpApplication.AsyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+   en System.Web.HttpApplication.PipelineStepManager.ResumeSteps(Exception error)
+   en System.Web.HttpApplication.BeginProcessRequestNotification(HttpContext context, AsyncCallback cb)
+   en System.Web.HttpRuntime.ProcessRequestNotificationPrivate(IIS7WorkerRequest wr, HttpContext context)
+   en System.Web.Hosting.PipelineRuntime.ProcessRequestNotificationHelper(IntPtr rootedObjectsPointer, IntPtr nativeRequestContext, IntPtr moduleData, Int32 flags)
+   en System.Web.Hosting.PipelineRuntime.ProcessRequestNotification(IntPtr rootedObjectsPointer, IntPtr nativeRequestContext, IntPtr moduleData, Int32 flags)
+]
+
+

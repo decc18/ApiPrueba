@@ -1,0 +1,1276 @@
+08:22:06.905
+[Error - [servicio]
+[sp_consulta_sps]
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Data.SqlClient.SqlException
+Mensaje:La base de datos 'catalogo' no existe. Asegúrese de que ha escrito el nombre correctamente.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarScript(EnumCadenaConexion enumCadena, String strScript) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 553
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarScript(String strScript) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 498
+   en TCM.Core.AccesoDatos.ClsConexion.CargaEstructuraSPs() en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 760
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.Core.AccesoDatos.ClsConexion.CargaEstructuraSPs() en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 772
+   en TCM.Core.AccesoDatos.ClsConexion.TestConexion() en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 72
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 215
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.AccesoDatos.ClsConexion.GetListaConsultaSP[T](ClsProcedimiento SP, Nullable`1 EstadoConsulta) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 183
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Consultar[T](T objFiltros) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 120
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.ConsultarFirst[T](T objFiltros) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 133
+   en TCM.Core.LogicaNegocio.CRUD.CrudAplicacion.ConsultarAplicacionById(String idAplicacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudAutenticacionExterna.cs:línea 16
+   en TCM.LogicaNegocio.LogicaAplicacion.GetAplicacion(String idAplicacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaAplicacion.cs:línea 18
+   en TCM.WebAPI.Identity.UserStore.FindClient(String idAplicacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Identity\UserStore.cs:línea 87
+   en TCM.WebAPI.Providers.AuthorizationServerProvider.ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context) en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Providers\AuthorizationServerProvider.cs:línea 48
+   en Microsoft.Owin.Security.OAuth.OAuthAuthorizationServerHandler.<InvokeTokenEndpointAsync>d__22.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine& stateMachine)
+   en Microsoft.Owin.Security.OAuth.OAuthAuthorizationServerHandler.InvokeTokenEndpointAsync()
+   en Microsoft.Owin.Security.OAuth.OAuthAuthorizationServerHandler.<InvokeAsync>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine& stateMachine)
+   en Microsoft.Owin.Security.OAuth.OAuthAuthorizationServerHandler.InvokeAsync()
+   en Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine& stateMachine)
+   en Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.Invoke(IOwinContext context)
+   en Microsoft.Owin.Infrastructure.OwinMiddlewareTransition.Invoke(IDictionary`2 environment)
+   en Microsoft.Owin.Infrastructure.AppFuncTransition.Invoke(IOwinContext context)
+   en Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine& stateMachine)
+   en Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.Invoke(IOwinContext context)
+   en Microsoft.Owin.Infrastructure.OwinMiddlewareTransition.Invoke(IDictionary`2 environment)
+   en Microsoft.Owin.Cors.CorsMiddleware.<Invoke>d__0.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine& stateMachine)
+   en Microsoft.Owin.Cors.CorsMiddleware.Invoke(IDictionary`2 environment)
+   en Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContextStage.<RunApp>d__5.MoveNext()
+   en System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start[TStateMachine](TStateMachine& stateMachine)
+   en Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContextStage.RunApp(Func`2 entryPoint, IDictionary`2 environment, TaskCompletionSource`1 tcs, StageAsyncResult result)
+   en Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContextStage.BeginEvent(Object sender, EventArgs e, AsyncCallback cb, Object extradata)
+   en System.Web.HttpApplication.AsyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   en System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   en System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+   en System.Web.HttpApplication.PipelineStepManager.ResumeSteps(Exception error)
+   en System.Web.HttpApplication.BeginProcessRequestNotification(HttpContext context, AsyncCallback cb)
+   en System.Web.HttpRuntime.ProcessRequestNotificationPrivate(IIS7WorkerRequest wr, HttpContext context)
+   en System.Web.Hosting.PipelineRuntime.ProcessRequestNotificationHelper(IntPtr rootedObjectsPointer, IntPtr nativeRequestContext, IntPtr moduleData, Int32 flags)
+   en System.Web.Hosting.PipelineRuntime.ProcessRequestNotification(IntPtr rootedObjectsPointer, IntPtr nativeRequestContext, IntPtr moduleData, Int32 flags)
+]
+
+
+08:22:16.040
+[Error - 
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.ArgumentException
+Mensaje:El parámetro no es válido.
+Origen :System.Drawing
+Pila   :   en System.Drawing.Image.FromStream(Stream stream, Boolean useEmbeddedColorManagement, Boolean validateImageData)
+   en System.Drawing.Image.FromStream(Stream stream)
+   en TCM.WebAPI.Controllers.SitioTuristicoController.<Get>d__0.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\SitioTuristicoController.cs:línea 34
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.WebAPI.Controllers.SitioTuristicoController.<Get>d__0.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\SitioTuristicoController.cs:línea 48
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   en System.Threading.Tasks.SynchronizationContextAwaitTaskContinuation.<>c.<.cctor>b__8_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+   en System.Web.Util.SynchronizationHelper.<>c__DisplayClass22_0.<QueueAsynchronous>b__0(Task _)
+   en System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+08:23:22.502
+[Error - 
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.ArgumentException
+Mensaje:El parámetro no es válido.
+Origen :System.Drawing
+Pila   :   en System.Drawing.Image.FromStream(Stream stream, Boolean useEmbeddedColorManagement, Boolean validateImageData)
+   en System.Drawing.Image.FromStream(Stream stream)
+   en TCM.WebAPI.Controllers.SitioTuristicoController.<Get>d__0.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\SitioTuristicoController.cs:línea 34
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.WebAPI.Controllers.SitioTuristicoController.<Get>d__0.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\SitioTuristicoController.cs:línea 48
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   en System.Threading.Tasks.SynchronizationContextAwaitTaskContinuation.<>c.<.cctor>b__8_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+   en System.Web.Util.SynchronizationHelper.<>c__DisplayClass22_0.<QueueAsynchronous>b__0(Task _)
+   en System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+08:24:44.368
+[Error - 
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.ArgumentException
+Mensaje:El parámetro no es válido.
+Origen :System.Drawing
+Pila   :   en System.Drawing.Image.FromStream(Stream stream, Boolean useEmbeddedColorManagement, Boolean validateImageData)
+   en System.Drawing.Image.FromStream(Stream stream)
+   en TCM.WebAPI.Controllers.SitioTuristicoController.<Get>d__0.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\SitioTuristicoController.cs:línea 34
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.WebAPI.Controllers.SitioTuristicoController.<Get>d__0.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\SitioTuristicoController.cs:línea 48
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   en System.Threading.Tasks.SynchronizationContextAwaitTaskContinuation.<>c.<.cctor>b__8_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+   en System.Web.Util.SynchronizationHelper.<>c__DisplayClass22_0.<QueueAsynchronous>b__0(Task _)
+   en System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+08:29:08.615
+[Error - [servicio]
+[sp_consulta_sps]
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Data.SqlClient.SqlException
+Mensaje:La base de datos 'catalogo' no existe. Asegúrese de que ha escrito el nombre correctamente.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarScript(EnumCadenaConexion enumCadena, String strScript) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 553
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarScript(String strScript) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 498
+   en TCM.Core.AccesoDatos.ClsConexion.CargaEstructuraSPs() en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 760
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.Core.AccesoDatos.ClsConexion.CargaEstructuraSPs() en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 772
+   en TCM.Core.AccesoDatos.ClsConexion.TestConexion() en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 72
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 215
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.AccesoDatos.ClsConexion.GetListaConsultaSP[T](ClsProcedimiento SP, Nullable`1 EstadoConsulta) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 183
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Consultar[T](T objFiltros) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 120
+   en TCM.Core.LogicaNegocio.LogicaSitioTuristico.ConsultarSitiosTuristicos(DtoSitioTuristico dto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaSitioTuristico.cs:línea 11
+   en TCM.WebAPI.Controllers.SitioTuristicoController.<>c__DisplayClass0_0.<Get>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\SitioTuristicoController.cs:línea 25
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+09:55:27.708
+[Error - [{"IdUbicacion":null,"IdSolicitud":58,"Tipo":null,"Longitud":-78.552745655179,"Latitud":-0.29543446842581,"Observaciones":"Registro Manual","IdUsuario":1,"DetalleProceso":null,"TipoTRX":2,"Busqueda":null,"Pagina":0,"Reprocesos":0}]
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Exception
+Mensaje:<SP>[administracion]
+spsrv_crear_ubicacion @i_ub_tipo=Null,  @i_ub_id_usuario=1,  @i_ub_id_solicitud=58,  @i_ub_longitud='-78.552745655179',  @i_ub_latitud='-0.29543446842581',  @i_ub_observaciones='Registro Manual', 
+</SP>
+Origen :TCM.Core.AccesoDatos
+Pila   :   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 327
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 20
+EXCEPTION 2):System.Data.SqlClient.SqlException
+Mensaje:No se puede insertar el valor NULL en la columna 'ub_tipo', tabla 'servicio.dbo.srv_ubicacion'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 296
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 24
+   en TCM.Core.LogicaNegocio.LogicaUbicaciones.CrearUbicacion(DtoUbicacion item) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUbicaciones.cs:línea 25
+   en TCM.WebAPI.Controllers.UbicacionesController.<>c__DisplayClass1_0.<PostUbicacion>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 60
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+09:55:27.771
+[Error - 
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Exception
+Mensaje:<SP>[administracion]
+spsrv_crear_ubicacion @i_ub_tipo=Null,  @i_ub_id_usuario=1,  @i_ub_id_solicitud=58,  @i_ub_longitud='-78.552745655179',  @i_ub_latitud='-0.29543446842581',  @i_ub_observaciones='Registro Manual', 
+</SP>
+Origen :TCM.Core.AccesoDatos
+Pila   :   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 327
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 25
+   en TCM.Core.LogicaNegocio.LogicaUbicaciones.CrearUbicacion(DtoUbicacion item) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUbicaciones.cs:línea 25
+   en TCM.WebAPI.Controllers.UbicacionesController.<>c__DisplayClass1_0.<PostUbicacion>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 60
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en TCM.WebAPI.Controllers.UbicacionesController.<PostUbicacion>d__1.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 58
+EXCEPTION 2):System.Data.SqlClient.SqlException
+Mensaje:No se puede insertar el valor NULL en la columna 'ub_tipo', tabla 'servicio.dbo.srv_ubicacion'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 296
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.WebAPI.Controllers.UbicacionesController.<PostUbicacion>d__1.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 70
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c__DisplayClass4_0.<OutputAsyncCausalityEvents>b__0()
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   en System.Threading.Tasks.SynchronizationContextAwaitTaskContinuation.<>c.<.cctor>b__8_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+   en System.Web.Util.SynchronizationHelper.<>c__DisplayClass22_0.<QueueAsynchronous>b__0(Task _)
+   en System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+09:56:20.031
+[Error - [{"IdUbicacion":null,"IdSolicitud":58,"Tipo":null,"Longitud":-78.552745655179,"Latitud":-0.29543446842581,"Observaciones":"Registro Manual","IdUsuario":1,"DetalleProceso":null,"TipoTRX":2,"Busqueda":null,"Pagina":0,"Reprocesos":0}]
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Exception
+Mensaje:<SP>[administracion]
+spsrv_crear_ubicacion @i_ub_tipo=Null,  @i_ub_id_usuario=1,  @i_ub_id_solicitud=58,  @i_ub_longitud='-78.552745655179',  @i_ub_latitud='-0.29543446842581',  @i_ub_observaciones='Registro Manual', 
+</SP>
+Origen :TCM.Core.AccesoDatos
+Pila   :   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 327
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 20
+EXCEPTION 2):System.Data.SqlClient.SqlException
+Mensaje:No se puede insertar el valor NULL en la columna 'ub_tipo', tabla 'servicio.dbo.srv_ubicacion'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 296
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 24
+   en TCM.Core.LogicaNegocio.LogicaUbicaciones.CrearUbicacion(DtoUbicacion item) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUbicaciones.cs:línea 25
+   en TCM.WebAPI.Controllers.UbicacionesController.<>c__DisplayClass1_0.<PostUbicacion>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 60
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+09:56:20.035
+[Error - 
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Exception
+Mensaje:<SP>[administracion]
+spsrv_crear_ubicacion @i_ub_tipo=Null,  @i_ub_id_usuario=1,  @i_ub_id_solicitud=58,  @i_ub_longitud='-78.552745655179',  @i_ub_latitud='-0.29543446842581',  @i_ub_observaciones='Registro Manual', 
+</SP>
+Origen :TCM.Core.AccesoDatos
+Pila   :   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 327
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 25
+   en TCM.Core.LogicaNegocio.LogicaUbicaciones.CrearUbicacion(DtoUbicacion item) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUbicaciones.cs:línea 25
+   en TCM.WebAPI.Controllers.UbicacionesController.<>c__DisplayClass1_0.<PostUbicacion>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 60
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en TCM.WebAPI.Controllers.UbicacionesController.<PostUbicacion>d__1.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 58
+EXCEPTION 2):System.Data.SqlClient.SqlException
+Mensaje:No se puede insertar el valor NULL en la columna 'ub_tipo', tabla 'servicio.dbo.srv_ubicacion'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 296
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.WebAPI.Controllers.UbicacionesController.<PostUbicacion>d__1.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 70
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c__DisplayClass4_0.<OutputAsyncCausalityEvents>b__0()
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   en System.Threading.Tasks.SynchronizationContextAwaitTaskContinuation.<>c.<.cctor>b__8_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+   en System.Web.Util.SynchronizationHelper.<>c__DisplayClass22_0.<QueueAsynchronous>b__0(Task _)
+   en System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+09:56:20.583
+[Error - [{"IdUbicacion":null,"IdSolicitud":58,"Tipo":null,"Longitud":-78.552745655179,"Latitud":-0.29543446842581,"Observaciones":"Registro Manual","IdUsuario":1,"DetalleProceso":null,"TipoTRX":2,"Busqueda":null,"Pagina":0,"Reprocesos":0}]
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Exception
+Mensaje:<SP>[administracion]
+spsrv_crear_ubicacion @i_ub_tipo=Null,  @i_ub_id_usuario=1,  @i_ub_id_solicitud=58,  @i_ub_longitud='-78.552745655179',  @i_ub_latitud='-0.29543446842581',  @i_ub_observaciones='Registro Manual', 
+</SP>
+Origen :TCM.Core.AccesoDatos
+Pila   :   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 327
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 20
+EXCEPTION 2):System.Data.SqlClient.SqlException
+Mensaje:No se puede insertar el valor NULL en la columna 'ub_tipo', tabla 'servicio.dbo.srv_ubicacion'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 296
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 24
+   en TCM.Core.LogicaNegocio.LogicaUbicaciones.CrearUbicacion(DtoUbicacion item) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUbicaciones.cs:línea 25
+   en TCM.WebAPI.Controllers.UbicacionesController.<>c__DisplayClass1_0.<PostUbicacion>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 60
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+09:56:20.587
+[Error - 
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Exception
+Mensaje:<SP>[administracion]
+spsrv_crear_ubicacion @i_ub_tipo=Null,  @i_ub_id_usuario=1,  @i_ub_id_solicitud=58,  @i_ub_longitud='-78.552745655179',  @i_ub_latitud='-0.29543446842581',  @i_ub_observaciones='Registro Manual', 
+</SP>
+Origen :TCM.Core.AccesoDatos
+Pila   :   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 327
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 25
+   en TCM.Core.LogicaNegocio.LogicaUbicaciones.CrearUbicacion(DtoUbicacion item) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUbicaciones.cs:línea 25
+   en TCM.WebAPI.Controllers.UbicacionesController.<>c__DisplayClass1_0.<PostUbicacion>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 60
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en TCM.WebAPI.Controllers.UbicacionesController.<PostUbicacion>d__1.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 58
+EXCEPTION 2):System.Data.SqlClient.SqlException
+Mensaje:No se puede insertar el valor NULL en la columna 'ub_tipo', tabla 'servicio.dbo.srv_ubicacion'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 296
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.WebAPI.Controllers.UbicacionesController.<PostUbicacion>d__1.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 70
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c__DisplayClass4_0.<OutputAsyncCausalityEvents>b__0()
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   en System.Threading.Tasks.SynchronizationContextAwaitTaskContinuation.<>c.<.cctor>b__8_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+   en System.Web.Util.SynchronizationHelper.<>c__DisplayClass22_0.<QueueAsynchronous>b__0(Task _)
+   en System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+09:56:26.149
+[Error - [{"IdUbicacion":null,"IdSolicitud":58,"Tipo":null,"Longitud":-78.552745655179,"Latitud":-0.29543446842581,"Observaciones":"Registro Manual","IdUsuario":1,"DetalleProceso":null,"TipoTRX":2,"Busqueda":null,"Pagina":0,"Reprocesos":0}]
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Exception
+Mensaje:<SP>[administracion]
+spsrv_crear_ubicacion @i_ub_tipo=Null,  @i_ub_id_usuario=1,  @i_ub_id_solicitud=58,  @i_ub_longitud='-78.552745655179',  @i_ub_latitud='-0.29543446842581',  @i_ub_observaciones='Registro Manual', 
+</SP>
+Origen :TCM.Core.AccesoDatos
+Pila   :   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 327
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 20
+EXCEPTION 2):System.Data.SqlClient.SqlException
+Mensaje:No se puede insertar el valor NULL en la columna 'ub_tipo', tabla 'servicio.dbo.srv_ubicacion'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 296
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 24
+   en TCM.Core.LogicaNegocio.LogicaUbicaciones.CrearUbicacion(DtoUbicacion item) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUbicaciones.cs:línea 25
+   en TCM.WebAPI.Controllers.UbicacionesController.<>c__DisplayClass1_0.<PostUbicacion>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 60
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+09:56:26.152
+[Error - 
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Exception
+Mensaje:<SP>[administracion]
+spsrv_crear_ubicacion @i_ub_tipo=Null,  @i_ub_id_usuario=1,  @i_ub_id_solicitud=58,  @i_ub_longitud='-78.552745655179',  @i_ub_latitud='-0.29543446842581',  @i_ub_observaciones='Registro Manual', 
+</SP>
+Origen :TCM.Core.AccesoDatos
+Pila   :   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 327
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 25
+   en TCM.Core.LogicaNegocio.LogicaUbicaciones.CrearUbicacion(DtoUbicacion item) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUbicaciones.cs:línea 25
+   en TCM.WebAPI.Controllers.UbicacionesController.<>c__DisplayClass1_0.<PostUbicacion>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 60
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en TCM.WebAPI.Controllers.UbicacionesController.<PostUbicacion>d__1.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 58
+EXCEPTION 2):System.Data.SqlClient.SqlException
+Mensaje:No se puede insertar el valor NULL en la columna 'ub_tipo', tabla 'servicio.dbo.srv_ubicacion'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 296
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.WebAPI.Controllers.UbicacionesController.<PostUbicacion>d__1.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 70
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c__DisplayClass4_0.<OutputAsyncCausalityEvents>b__0()
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   en System.Threading.Tasks.SynchronizationContextAwaitTaskContinuation.<>c.<.cctor>b__8_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+   en System.Web.Util.SynchronizationHelper.<>c__DisplayClass22_0.<QueueAsynchronous>b__0(Task _)
+   en System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+09:57:47.576
+[Error - [{"IdUbicacion":0,"IdSolicitud":58,"Tipo":null,"Longitud":-78.552745655179,"Latitud":-0.29543446842581,"Observaciones":"Registro Manual","IdUsuario":1,"DetalleProceso":null,"TipoTRX":2,"Busqueda":null,"Pagina":0,"Reprocesos":0}]
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Exception
+Mensaje:<SP>[administracion]
+spsrv_crear_ubicacion @i_ub_tipo=Null,  @i_ub_id_usuario=1,  @i_ub_id_solicitud=58,  @i_ub_longitud='-78.552745655179',  @i_ub_latitud='-0.29543446842581',  @i_ub_observaciones='Registro Manual', 
+</SP>
+Origen :TCM.Core.AccesoDatos
+Pila   :   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 327
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 20
+EXCEPTION 2):System.Data.SqlClient.SqlException
+Mensaje:No se puede insertar el valor NULL en la columna 'ub_tipo', tabla 'servicio.dbo.srv_ubicacion'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 296
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 24
+   en TCM.Core.LogicaNegocio.LogicaUbicaciones.CrearUbicacion(DtoUbicacion item) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUbicaciones.cs:línea 25
+   en TCM.WebAPI.Controllers.UbicacionesController.<>c__DisplayClass1_0.<PostUbicacion>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 60
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+09:57:47.579
+[Error - 
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Exception
+Mensaje:<SP>[administracion]
+spsrv_crear_ubicacion @i_ub_tipo=Null,  @i_ub_id_usuario=1,  @i_ub_id_solicitud=58,  @i_ub_longitud='-78.552745655179',  @i_ub_latitud='-0.29543446842581',  @i_ub_observaciones='Registro Manual', 
+</SP>
+Origen :TCM.Core.AccesoDatos
+Pila   :   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 327
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 25
+   en TCM.Core.LogicaNegocio.LogicaUbicaciones.CrearUbicacion(DtoUbicacion item) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUbicaciones.cs:línea 25
+   en TCM.WebAPI.Controllers.UbicacionesController.<>c__DisplayClass1_0.<PostUbicacion>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 60
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en TCM.WebAPI.Controllers.UbicacionesController.<PostUbicacion>d__1.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 58
+EXCEPTION 2):System.Data.SqlClient.SqlException
+Mensaje:No se puede insertar el valor NULL en la columna 'ub_tipo', tabla 'servicio.dbo.srv_ubicacion'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 296
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.WebAPI.Controllers.UbicacionesController.<PostUbicacion>d__1.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 70
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c__DisplayClass4_0.<OutputAsyncCausalityEvents>b__0()
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   en System.Threading.Tasks.SynchronizationContextAwaitTaskContinuation.<>c.<.cctor>b__8_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+   en System.Web.Util.SynchronizationHelper.<>c__DisplayClass22_0.<QueueAsynchronous>b__0(Task _)
+   en System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+09:59:21.364
+[Error - [{"IdUbicacion":0,"IdSolicitud":58,"Tipo":null,"Longitud":-78.552745655179,"Latitud":-0.29543446842581,"Observaciones":"Registro Manual","IdUsuario":1,"DetalleProceso":null,"TipoTRX":2,"Busqueda":null,"Pagina":0,"Reprocesos":0}]
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Exception
+Mensaje:<SP>[administracion]
+spsrv_crear_ubicacion @i_ub_tipo=Null,  @i_ub_id_usuario=1,  @i_ub_id_solicitud=58,  @i_ub_longitud='-78.552745655179',  @i_ub_latitud='-0.29543446842581',  @i_ub_observaciones='Registro Manual', 
+</SP>
+Origen :TCM.Core.AccesoDatos
+Pila   :   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 327
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 20
+EXCEPTION 2):System.Data.SqlClient.SqlException
+Mensaje:No se puede insertar el valor NULL en la columna 'ub_tipo', tabla 'servicio.dbo.srv_ubicacion'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 296
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 24
+   en TCM.Core.LogicaNegocio.LogicaUbicaciones.CrearUbicacion(DtoUbicacion item) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUbicaciones.cs:línea 25
+   en TCM.WebAPI.Controllers.UbicacionesController.<>c__DisplayClass1_0.<PostUbicacion>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 60
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+09:59:21.367
+[Error - 
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Exception
+Mensaje:<SP>[administracion]
+spsrv_crear_ubicacion @i_ub_tipo=Null,  @i_ub_id_usuario=1,  @i_ub_id_solicitud=58,  @i_ub_longitud='-78.552745655179',  @i_ub_latitud='-0.29543446842581',  @i_ub_observaciones='Registro Manual', 
+</SP>
+Origen :TCM.Core.AccesoDatos
+Pila   :   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 327
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 25
+   en TCM.Core.LogicaNegocio.LogicaUbicaciones.CrearUbicacion(DtoUbicacion item) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUbicaciones.cs:línea 25
+   en TCM.WebAPI.Controllers.UbicacionesController.<>c__DisplayClass1_0.<PostUbicacion>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 60
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en TCM.WebAPI.Controllers.UbicacionesController.<PostUbicacion>d__1.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 58
+EXCEPTION 2):System.Data.SqlClient.SqlException
+Mensaje:No se puede insertar el valor NULL en la columna 'ub_tipo', tabla 'servicio.dbo.srv_ubicacion'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 296
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.WebAPI.Controllers.UbicacionesController.<PostUbicacion>d__1.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 70
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c__DisplayClass4_0.<OutputAsyncCausalityEvents>b__0()
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   en System.Threading.Tasks.SynchronizationContextAwaitTaskContinuation.<>c.<.cctor>b__8_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+   en System.Web.Util.SynchronizationHelper.<>c__DisplayClass22_0.<QueueAsynchronous>b__0(Task _)
+   en System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+10:00:37.327
+[Error - [{"IdUbicacion":0,"IdSolicitud":58,"Tipo":null,"Longitud":-78.552745655179,"Latitud":-0.29543446842581,"Observaciones":"Registro Manual","IdUsuario":1,"DetalleProceso":null,"TipoTRX":2,"Busqueda":null,"Pagina":0,"Reprocesos":0}]
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Exception
+Mensaje:<SP>[administracion]
+spsrv_crear_ubicacion @i_ub_tipo=Null,  @i_ub_id_usuario=1,  @i_ub_id_solicitud=58,  @i_ub_longitud='-78.552745655179',  @i_ub_latitud='-0.29543446842581',  @i_ub_observaciones='Registro Manual', 
+</SP>
+Origen :TCM.Core.AccesoDatos
+Pila   :   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 327
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 20
+EXCEPTION 2):System.Data.SqlClient.SqlException
+Mensaje:No se puede insertar el valor NULL en la columna 'ub_tipo', tabla 'servicio.dbo.srv_ubicacion'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 296
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 24
+   en TCM.Core.LogicaNegocio.LogicaUbicaciones.CrearUbicacion(DtoUbicacion item) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUbicaciones.cs:línea 25
+   en TCM.WebAPI.Controllers.UbicacionesController.<>c__DisplayClass1_0.<PostUbicacion>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 60
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
+10:00:37.330
+[Error - 
+
+*********
+ Detalle:
+*********
+EXCEPTION 1):System.Exception
+Mensaje:<SP>[administracion]
+spsrv_crear_ubicacion @i_ub_tipo=Null,  @i_ub_id_usuario=1,  @i_ub_id_solicitud=58,  @i_ub_longitud='-78.552745655179',  @i_ub_latitud='-0.29543446842581',  @i_ub_observaciones='Registro Manual', 
+</SP>
+Origen :TCM.Core.AccesoDatos
+Pila   :   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 327
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 199
+   en TCM.Core.LogicaNegocio.CRUD.CrudDTO.Crear[T](T objeto) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\CRUD\CrudDTO.cs:línea 25
+   en TCM.Core.LogicaNegocio.LogicaUbicaciones.CrearUbicacion(DtoUbicacion item) en C:\Users\Gamma\Source\Workspaces\Core\TCM.LogicaNegocio\LogicaUbicaciones.cs:línea 25
+   en TCM.WebAPI.Controllers.UbicacionesController.<>c__DisplayClass1_0.<PostUbicacion>b__0() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 60
+   en System.Threading.Tasks.Task.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en TCM.WebAPI.Controllers.UbicacionesController.<PostUbicacion>d__1.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 58
+EXCEPTION 2):System.Data.SqlClient.SqlException
+Mensaje:No se puede insertar el valor NULL en la columna 'ub_tipo', tabla 'servicio.dbo.srv_ubicacion'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+Origen :.Net SqlClient Data Provider
+Pila   :   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   en TCM.Core.AccesoDatos.ClsConexion.EjecutarProcedimiento(EnumCadenaConexion enumCadena, ClsProcedimiento SP, Boolean ValidarSP) en C:\Users\Gamma\Source\Workspaces\Core\TCM.ConexionBDD\ClsConexion.cs:línea 296
+
+
+
+
+*********
+STACK:
+*********
+   en System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   en System.Environment.get_StackTrace()
+   en TCM.Core.Util.ClsTools.GetMensaje(Boolean InsertarHora, Boolean Vertical, Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 570
+   en TCM.Core.Util.ClsTools.GetMensajeVertical(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsTools.cs:línea 454
+   en TCM.Core.Util.ClsVisorEventos.LogEvent(Object[] paramInformacion) en C:\Users\Gamma\Source\Workspaces\Core\TCM.Util\ClsVisorEventos.cs:línea 85
+   en TCM.WebAPI.Controllers.UbicacionesController.<PostUbicacion>d__1.MoveNext() en C:\Users\Gamma\Source\Workspaces\Core\TCM.WebAPI\Controllers\UbicacionesController.cs:línea 70
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.InvokeMoveNext(Object stateMachine)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.MoveNextRunner.Run()
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c__DisplayClass4_0.<OutputAsyncCausalityEvents>b__0()
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.ContinuationWrapper.Invoke()
+   en System.Threading.Tasks.SynchronizationContextAwaitTaskContinuation.<>c.<.cctor>b__8_0(Object state)
+   en System.Web.AspNetSynchronizationContext.<>c__DisplayClass22_0.<Post>b__0()
+   en System.Web.Util.SynchronizationHelper.SafeWrapCallback(Action action)
+   en System.Web.Util.SynchronizationHelper.<>c__DisplayClass22_0.<QueueAsynchronous>b__0(Task _)
+   en System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   en System.Threading.Tasks.Task.Execute()
+   en System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   en System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   en System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   en System.Threading.ThreadPoolWorkQueue.Dispatch()
+   en System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+]
+
+
